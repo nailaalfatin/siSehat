@@ -1,27 +1,31 @@
+import 'package:finpro_app/consts.dart';
 import 'package:finpro_app/models/doctors.dart';
+import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:finpro_app/ui/appointment/doctor/components/doctor_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Doctorscreen extends StatelessWidget {
   const Doctorscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
         elevation: 1,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          icon: Icon(Icons.arrow_back_ios, color: themeProvider.isDarkTheme ? Colors.white : Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: const Text(
+        title: Text(
           "Ear, Nose & Throat",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+          style: TextStyle(color:themeProvider.isDarkTheme ? Colors.white : textColor),
         ),
       ),
       body: Padding(
@@ -73,7 +77,7 @@ class Doctorscreen extends StatelessWidget {
                 itemCount: Doctor.doctors.length,
                 itemBuilder: (context, index) {
                   final doctor = Doctor.doctors[index];
-                  return DoctorCard(doctor: doctor, onTap: () { Navigator.pushNamed(context, '/booking'); },); // Pass doctor object
+                  return DoctorCard(doctor: doctor, onTap: () { Navigator.pushNamed(context, '/booking'); }); // Pass doctor object
                 },
               ),
             ),
@@ -91,10 +95,12 @@ class FilterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: themeProvider.isDarkTheme ? Colors.black : Colors.white,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.grey.shade300),
       ),
@@ -103,7 +109,7 @@ class FilterButton extends StatelessWidget {
         children: [
           Text(
             label,
-            style: const TextStyle(color: Colors.black),
+            style: TextStyle(color: themeProvider.isDarkTheme ? Colors.white : textSecondaryDark),
           ),
           const SizedBox(width: 3),
           const Icon(Icons.arrow_drop_down)

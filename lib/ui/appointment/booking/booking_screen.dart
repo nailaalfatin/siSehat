@@ -1,5 +1,8 @@
+import 'package:finpro_app/consts.dart';
+import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'components/appointment_button.dart';
 import 'components/comments.dart';
 import 'components/doctor_info.dart';
@@ -8,10 +11,12 @@ class BookingScreen extends StatelessWidget {
   const BookingScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {   
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
         title: const Text('Ear, Nose & Throat'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -47,12 +52,12 @@ class BookingScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 8),
-                          const Text(
+                          Text(
                             'RS. Hermina',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: Colors.black
+                              color: themeProvider.isDarkTheme ? Colors.white : textColor
                             ),
                           ),
                         ],
@@ -79,12 +84,12 @@ class BookingScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 8),
-                          const Text(
+                           Text(
                             '07.00 - 18.00',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: Colors.black
+                              color: themeProvider.isDarkTheme ? Colors.white : textColor
                             ),
                           ),
                         ],
@@ -93,12 +98,12 @@ class BookingScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 30),
-                const Text(
+                Text(
                   'Biography',
                   style: TextStyle(
                     fontSize: 17, 
                     fontWeight: FontWeight.bold,
-                    color: Colors.black
+                    color: themeProvider.isDarkTheme ? Colors.white : textColor
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -106,12 +111,12 @@ class BookingScreen extends StatelessWidget {
                   'Dr. Patricia Ahoy specialist in Ear, Nose & Throat, and work in RS. Hermina Malang. It is a long established fact that a reader will be distracted by the readable content.',
                 ),
                 const SizedBox(height: 24),
-                const Text(
+                Text(
                   'Work Location',
                   style: TextStyle(
                     fontSize: 17, 
                     fontWeight: FontWeight.bold,
-                    color: Colors.black
+                    color: themeProvider.isDarkTheme ? Colors.white : textColor
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -128,12 +133,12 @@ class BookingScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Rating (72)',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: themeProvider.isDarkTheme ? Colors.white : textColor,
                       ),
                     ),
                     Row(

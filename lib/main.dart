@@ -56,7 +56,7 @@ class _SiSehatState extends State<SiSehat> {
             '/' : (context) => const SplashScreen(),
             '/on-boarding' : (context) => const OnboardingScreen(),
             '/auth-option' : (context) => const AuthOptionScreen(),
-            '/login' : (context) => LoginScreen(),
+            '/login' : (context) => const LoginScreen(),
             '/register' : (context) => RegisterScreen(),
             '/home': (context) => const HomeScreen(),
             '/choose-appointment' : (context) => const ChooseAnAppointmentScreen(),

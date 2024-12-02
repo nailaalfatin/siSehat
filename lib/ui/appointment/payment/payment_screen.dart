@@ -1,6 +1,8 @@
 import 'package:finpro_app/consts.dart';
+import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class PaymentScreen extends StatefulWidget {
  const PaymentScreen({super.key});
@@ -32,9 +34,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
  @override
  Widget build(BuildContext context) {
+  final themeProvider = Provider.of<ThemeProvider>(context);
+
    return Scaffold(
      appBar: AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
        title: const Text('Payment'),
        leading: IconButton(
          icon: const Icon(Icons.arrow_back_ios),
@@ -73,12 +77,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                        const Text('4.5'),
                      ],
                    ),
-                   const Text(
+                  Text(
                      'Dr. Stone Gaze',
                      style: TextStyle(
                        fontWeight: FontWeight.bold,
                        fontSize: 16,
-                       color: textColor,
+                       color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                      ),
                    ),
                    const Text(
@@ -123,10 +127,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
              children: [
                SvgPicture.asset('assets/icons/menu-board.svg'),
                const SizedBox(width: 12),
-               const Column(
+                Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
-                   Text(
+                   const Text(
                      'Appointment',
                      style: TextStyle(
                        fontSize: 14,
@@ -138,7 +142,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                      style: TextStyle(
                        fontSize: 16,
                        fontWeight: FontWeight.bold,
-                       color: textColor,
+                       color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                      ),
                    ),
                  ],
@@ -150,12 +154,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               const Text(
+              Text(
                  'Select Payment Method',
                  style: TextStyle(
                    fontSize: 16,
                    fontWeight: FontWeight.bold,
-                   color: textColor,
+                   color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                  ),
                ),
                GestureDetector(
@@ -214,10 +218,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
            ),
            const SizedBox(height: 15),
            // Row for consultation fee and IDR 200.000
-           const Row(
+          Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               Text(
+               const Text(
                  'Consultation Fee',
                  style: TextStyle(fontSize: 14),
                ),
@@ -226,16 +230,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
                  style: TextStyle(
                    fontSize: 16,
                    fontWeight: FontWeight.bold,
-                   color: textColor,
+                   color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                  ),
                ),
              ],
            ),
            const SizedBox(height: 8),
-           const Row(
+          Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               Text(
+               const Text(
                  'Admin',
                  style: TextStyle(fontSize: 14),
                ),
@@ -244,7 +248,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                  style: TextStyle(
                    fontSize: 14,
                    fontWeight: FontWeight.bold,
-                   color: textColor,
+                   color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                  ),
                ),
              ],
@@ -256,10 +260,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
                // Column to show the total amount on a different line
-               const Column(
+              Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
-                   Text(
+                   const Text(
                      'Total',
                      style: TextStyle(
                        fontSize: 16,
@@ -270,7 +274,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                      style: TextStyle(
                        fontSize: 17,
                        fontWeight: FontWeight.bold,
-                       color: textColor,
+                       color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                      ),
                    ),
                  ],
@@ -280,7 +284,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                  width: 200, // Tentukan lebar tombol "Pay"
                  child: ElevatedButton(
                    style: ElevatedButton.styleFrom(
-                     backgroundColor: primaryColor,
+                     backgroundColor: themeProvider.isDarkTheme ? primaryDarkColor : primaryColor,
                      minimumSize: const Size.fromHeight(50),
                      shape: RoundedRectangleBorder(
                        borderRadius: BorderRadius.circular(10),

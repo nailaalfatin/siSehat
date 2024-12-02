@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -30,7 +32,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+      backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
       body: Center(
         child: AnimatedOpacity(
           opacity: _isVisible ? 1.0 : 0.0, // The opacity will change after 1 second

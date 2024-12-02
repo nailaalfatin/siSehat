@@ -8,7 +8,6 @@ class AuthOptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width; // Mendapatkan lebar layar perangkat
 
     return const Scaffold(
       body: SafeArea( // SafeArea memastikan konten tidak terpotong oleh status bar atau area perangkat lainnya
