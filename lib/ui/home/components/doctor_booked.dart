@@ -27,7 +27,7 @@ class DoctorBooked extends StatelessWidget {
                 height: 60,
                 decoration: BoxDecoration(
                   image: const DecorationImage(
-                    image: AssetImage('assets/images/doctor_booked.png'),
+                    image: AssetImage('assets/images/doctor-booked.png'),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(16),

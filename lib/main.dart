@@ -1,6 +1,11 @@
 import 'package:finpro_app/state-management/theme_provider.dart';
-import 'package:finpro_app/ui/booking/booking_screen.dart';
+import 'package:finpro_app/ui/appointment/booking/booking_screen.dart';
+import 'package:finpro_app/ui/appointment/choose_an_appointment/choose_an_appointment.dart';
+import 'package:finpro_app/ui/appointment/doctor/doctor_screen.dart';
+import 'package:finpro_app/ui/auth/auth-option/auth_option_screen.dart';
 import 'package:finpro_app/ui/home/home_screen.dart';
+import 'package:finpro_app/ui/on_boarding/on_boarding_screen.dart';
+import 'package:finpro_app/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,9 +46,14 @@ class _SiSehatState extends State<SiSehat> {
                 bodySmall: TextStyle(color: Color(0xFF757575))
               )
             ),
-          initialRoute: '/home',
+          initialRoute: '/',
           routes: {
+            '/' : (context) => const SplashScreen(),
+            '/on-boarding' : (context) => const OnboardingScreen(),
+            '/auth-option' : (context) => const AuthOptionScreen(),
             '/home': (context) => const HomeScreen(),
+            '/choose-appointment' : (context) => const ChooseAnAppointmentScreen(),
+            '/doctor' : (context) => const Doctorscreen(),
             '/booking': (context) => const BookingScreen(),
           }
         );
