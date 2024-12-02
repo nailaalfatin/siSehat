@@ -17,7 +17,7 @@ class AuthFooter extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                // Aksi yang akan dilakukan ketika "Sign In" di-tap (Belum diimplementasikan)
+                Navigator.popAndPushNamed(context, '/login');
               },
               child: const Text(
                 'Sign In', // Teks untuk tautan ke halaman login

@@ -11,9 +11,10 @@ class BookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {    
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text('Ear, Nose & Throat'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () => Navigator.pop(context),
         ),
       ),

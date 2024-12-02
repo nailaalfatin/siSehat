@@ -23,9 +23,7 @@ class AuthButtons extends StatelessWidget {
                 ),
                 elevation: 1, // Efek bayangan tombol
               ),
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/home'); // Navigasi ke halaman home
-              },
+              onPressed: () {},
               child: const Text(
                 'Continue With Phone Number', // Teks pada tombol
                 style: TextStyle(fontSize: 16, color: Colors.white), // Gaya teks tombol

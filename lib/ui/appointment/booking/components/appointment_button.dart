@@ -17,7 +17,7 @@ class AppointmentButton extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  // Add checkout logic
+                  Navigator.pushNamed(context, '/schedule');
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 15),
