@@ -2,9 +2,10 @@
 
 **Si Sehat** is a Flutter-based mobile application developed as a **Final Project**. The app is designed to help users:
 
-Consult with doctors
-Schedule and book appointments
-We completed this project in just **1 day** and presented it on **December 2, 2024**. The app utilizes **Provider state management** for implementing dynamic theme changes, offering a modern and flexible user experience.
+- **Consult with doctors**
+- **Schedule and book appointments**
+
+The app utilizes **Provider state management** for implementing dynamic theme changes, offering a modern and flexible user experience.
 
 # Key Features
 
