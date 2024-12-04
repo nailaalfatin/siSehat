@@ -31,12 +31,13 @@ We were guided and mentored by **Ms. Setianing Budi**, who supported us througho
 
 ## UI Design
 
-The UI design for this app was adapted from **Figma Community**:
+The UI design for this app was adapted and sliced from the **Figma Community**:
 
 💙 **Si Sehat - Mobile UI Kit**
 
 Link: [Figma Community UI Kit](https://www.figma.com/design/Ct1qv7zD5azOwaTbwLCaJi/%F0%9F%92%8A-Si---Sehat---Mobile-UI-Kit-(Community)?node-id=0-1&node-type=canvas&t=hCaK6JgYqds2Zpt4-0)
 
+This design was sliced and implemented into the Flutter app for mobile development.
 Special thanks to the creator on Figma Community for providing such an amazing design.
 
 
