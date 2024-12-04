@@ -1,4 +1,6 @@
 import 'package:finpro_app/state-management/theme_provider.dart';
+import 'package:finpro_app/ui/appointment-with-qr/appointment_screen.dart';
+import 'package:finpro_app/ui/appointment-with-qr/scanner_screen.dart';
 import 'package:finpro_app/ui/appointment/booking/booking_screen.dart';
 import 'package:finpro_app/ui/appointment/choose_an_appointment/choose_an_appointment.dart';
 import 'package:finpro_app/ui/appointment/doctor/doctor_screen.dart';
@@ -56,7 +58,7 @@ class _SiSehatState extends State<SiSehat> {
             '/' : (context) => const SplashScreen(),
             '/on-boarding' : (context) => const OnboardingScreen(),
             '/auth-option' : (context) => const AuthOptionScreen(),
-            '/login' : (context) => const LoginScreen(),
+            '/login' : (context) => LoginScreen(),
             '/register' : (context) => RegisterScreen(),
             '/home': (context) => const HomeScreen(),
             '/choose-appointment' : (context) => const ChooseAnAppointmentScreen(),
@@ -65,6 +67,8 @@ class _SiSehatState extends State<SiSehat> {
             '/schedule': (context) => const ScheduleScreen(),
             '/payment': (context) => const PaymentScreen(),
             '/success': (context) => const SuccessScreen(),
+            '/appointment-with-qr': (context) => const AppointmentScreen(),
+            '/qr': (context) => const ScannerScreen(),
           }
         );
       }

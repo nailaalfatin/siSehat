@@ -1,7 +1,9 @@
 import 'package:finpro_app/consts.dart';
 import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import 'components/appointment_button.dart';
 import 'components/comments.dart';
@@ -124,10 +126,20 @@ class BookingScreen extends StatelessWidget {
                   'Jl. Raya Jonggol-Dayeuh, Sukanegara, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830',
                 ),
                 const SizedBox(height: 16),
-                Container(
+                SizedBox(
                   height: 150,
-                  color: Colors.grey[200],
-                  child: const Center(child: Text('Map Placeholder')),
+                  child: FlutterMap(
+                    options: const MapOptions(
+                      initialCenter: LatLng(-6.5377457, 107.867467),
+                      initialZoom: 15.0
+                    ),
+                    children: [
+                      TileLayer(
+                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //diambil dari streetMap
+                        subdomains: const ['a', 'b', 'c'], //properti subdomain digunakan untuk mempercepat loading
+                      )
+                    ]
+                  ),
                 ),
                 const SizedBox(height: 24),
                 Row(

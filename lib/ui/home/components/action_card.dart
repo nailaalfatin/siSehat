@@ -87,7 +87,9 @@ class ActionCard extends StatelessWidget {
         getColor: (ctx) =>
             themeProvider.isDarkTheme ? const Color(0xFF084C2E) : const Color(0xFFEDFCF2),
         iconPath: 'assets/icons/scan.svg',
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, '/appointment-with-qr');
+        },
       ),
       ActionCard(
         title: 'Request Consultation',

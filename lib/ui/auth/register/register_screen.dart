@@ -13,7 +13,6 @@ class RegisterScreen extends StatelessWidget {
 
  RegisterScreen({super.key});
 
-
  @override
  Widget build(BuildContext context) {
    return Scaffold( //widget utama buat ngatur layout

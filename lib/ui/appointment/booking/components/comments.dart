@@ -1,7 +1,5 @@
-import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 class Comments extends StatelessWidget {
   const Comments({super.key});
