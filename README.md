@@ -1,5 +1,5 @@
 ![mockup-SiSehat](https://github.com/user-attachments/assets/2a10063f-e2e9-4a84-a333-a57265713ba0)
-# SiSehat 
+# Si Sehat 
 
 **Si Sehat** is a Flutter-based mobile application developed as a **Final Project**. The app is designed to help users:
 
@@ -31,6 +31,7 @@ The UI design for this app was adapted from **Figma Community**:
 💙 **Si Sehat - Mobile UI Kit**
 
 Link: [Figma Community UI Kit](https://www.figma.com/design/Ct1qv7zD5azOwaTbwLCaJi/%F0%9F%92%8A-Si---Sehat---Mobile-UI-Kit-(Community)?node-id=0-1&node-type=canvas&t=hCaK6JgYqds2Zpt4-0)
+
 Special thanks to the creator on Figma Community for providing such an amazing design.
 
 # Technologies Used
@@ -38,3 +39,4 @@ Special thanks to the creator on Figma Community for providing such an amazing d
 - Flutter
 - Dart
 - Provider (State Management)
+- Scan QR
