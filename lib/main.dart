@@ -53,13 +53,13 @@ class _SiSehatState extends State<SiSehat> {
                 bodySmall: TextStyle(color: Color(0xFF757575))
               )
             ),
-          initialRoute: '/',
+          initialRoute: '/home',
           routes: {
             '/' : (context) => const SplashScreen(),
             '/on-boarding' : (context) => const OnboardingScreen(),
             '/auth-option' : (context) => const AuthOptionScreen(),
-            '/login' : (context) => LoginScreen(),
-            '/register' : (context) => RegisterScreen(),
+            '/login' : (context) => const LoginScreen(),
+            '/register' : (context) => const RegisterScreen(),
             '/home': (context) => const HomeScreen(),
             '/choose-appointment' : (context) => const ChooseAnAppointmentScreen(),
             '/doctor' : (context) => const Doctorscreen(),

@@ -20,7 +20,7 @@ class Doctor{
      name: "Dr. Patricia Ahoy",
      image: "assets/images/dr-pat-ahoy.png",
      specialist: "Ear, Nose & Throat specialist",
-     price: 120000,
+     price: 200000,
      rating: 4.5
    ),
    Doctor(

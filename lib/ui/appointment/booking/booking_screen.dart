@@ -19,10 +19,20 @@ class BookingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
-        title: const Text('Ear, Nose & Throat'),
+        elevation: 1,
+        centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios, color: themeProvider.isDarkTheme ? Colors.white : Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          "Ear, Nose & Throat",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
         ),
       ),
       body: Stack(
@@ -46,11 +56,16 @@ class BookingScreen extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 'assets/icons/hospital.svg',
-                                width: 20,
-                                height: 20,
+                                width: 22,
+                                height: 22,
                               ),
                               const SizedBox(width: 10),
-                              const Text('Hospital')
+                              Text(
+                                'Hospital',
+                                style: TextStyle(
+                                  color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                                ),
+                              )
                             ],
                           ),
                           const SizedBox(height: 8),
@@ -59,7 +74,7 @@ class BookingScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: themeProvider.isDarkTheme ? Colors.white : textColor
+                              color: themeProvider.isDarkTheme ? textPrimaryDark : textColor
                             ),
                           ),
                         ],
@@ -78,11 +93,16 @@ class BookingScreen extends StatelessWidget {
                             children: [
                               SvgPicture.asset(
                                 'assets/icons/time.svg',
-                                width: 20,
-                                height: 20,
+                                width: 22,
+                                height: 22,
                               ),
                               const SizedBox(width: 10),
-                              const Text('Working Hour')
+                              Text(
+                                'Working Hour',
+                                style: TextStyle(
+                                  color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                                ),
+                              )
                             ],
                           ),
                           const SizedBox(height: 8),
@@ -91,7 +111,7 @@ class BookingScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: themeProvider.isDarkTheme ? Colors.white : textColor
+                              color: themeProvider.isDarkTheme ? textPrimaryDark : textColor
                             ),
                           ),
                         ],
@@ -105,12 +125,15 @@ class BookingScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 17, 
                     fontWeight: FontWeight.bold,
-                    color: themeProvider.isDarkTheme ? Colors.white : textColor
+                    color: themeProvider.isDarkTheme ? textPrimaryDark : textColor
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
+                Text(
                   'Dr. Patricia Ahoy specialist in Ear, Nose & Throat, and work in RS. Hermina Malang. It is a long established fact that a reader will be distracted by the readable content.',
+                  style: TextStyle(
+                    color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                  ),
                 ),
                 const SizedBox(height: 24),
                 Text(
@@ -122,22 +145,39 @@ class BookingScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Jl. Raya Jonggol-Dayeuh, Sukanegara, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830',
+                Text(
+                  'Jl. Arjuna Utara No. 2, RT.5/RW.8, Tanah Abang, Kec. Tanah Abang, Kota Jakarta Pusat, DKI Jakarta 10210, Indonesia',
+                  style: TextStyle(
+                    color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                  ),
                 ),
                 const SizedBox(height: 16),
                 SizedBox(
                   height: 150,
                   child: FlutterMap(
                     options: const MapOptions(
-                      initialCenter: LatLng(-6.5377457, 107.867467),
+                      initialCenter: LatLng(-6.260718, 106.832901),
                       initialZoom: 15.0
                     ),
                     children: [
-                      TileLayer(
-                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //diambil dari streetMap
-                        subdomains: const ['a', 'b', 'c'], //properti subdomain digunakan untuk mempercepat loading
-                      )
+                       TileLayer(
+                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        subdomains: const ['a', 'b', 'c'],
+                      ),
+                      const MarkerLayer(
+                        markers: [
+                          Marker(
+                            point: LatLng(-6.260718, 106.832901), // koordinat rs hermina
+                            width: 40, // ukuran marker
+                            height: 40, // ukuran marker
+                            child: Icon(
+                              Icons.location_on,
+                              color: Colors.red,
+                              size: 40,
+                            ),
+                          ),
+                        ],
+                      ),
                     ]
                   ),
                 ),
@@ -150,7 +190,7 @@ class BookingScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: themeProvider.isDarkTheme ? Colors.white : textColor,
+                        color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                       ),
                     ),
                     Row(
@@ -161,7 +201,12 @@ class BookingScreen extends StatelessWidget {
                           height: 20,
                         ),
                         const SizedBox(width: 5),
-                        const Text('4.5'),
+                        Text(
+                          '4.5',
+                          style: TextStyle(
+                            color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                          ),
+                        ),
                       ],
                     ),
                   ],

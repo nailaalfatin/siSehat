@@ -38,13 +38,23 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
    return Scaffold(
      appBar: AppBar(
-      backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
-       title: const Text('Payment'),
-       leading: IconButton(
-         icon: const Icon(Icons.arrow_back_ios),
-         onPressed: () => Navigator.pop(context),
-       ),
-     ),
+        backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
+        elevation: 1,
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: themeProvider.isDarkTheme ? Colors.white : Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          "Payment",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+      ),
      body: Padding(
        padding: const EdgeInsets.all(16.0),
        child: Column(
@@ -64,19 +74,30 @@ class _PaymentScreenState extends State<PaymentScreen> {
                    borderRadius: BorderRadius.circular(16),
                  ),
                ),
-               const SizedBox(width: 12),
+               const SizedBox(width: 18),
                Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
                    Row(
                      children: [
-                       const Text('Rating'),
-                       const SizedBox(width: 10),
+                      Text(
+                        'Rating',
+                        style: TextStyle(
+                          color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                        ),
+                      ),
+                       const SizedBox(width: 12),
                        SvgPicture.asset('assets/icons/rating-star.svg'),
                        const SizedBox(width: 5),
-                       const Text('4.5'),
+                      Text(
+                        '4.5',
+                        style: TextStyle(
+                          color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                        ),
+                      ),
                      ],
                    ),
+                  const SizedBox(height: 2),
                   Text(
                      'Dr. Stone Gaze',
                      style: TextStyle(
@@ -85,11 +106,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                        color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
                      ),
                    ),
-                   const Text(
+                  const SizedBox(height: 2),
+                  Text(
                      'Ear, Nose & Throat specialist',
                      style: TextStyle(
                        fontSize: 14,
-                       color: Colors.grey,
+                       color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
                      ),
                    ),
                  ],
@@ -101,12 +123,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               const Text(
+              Text(
                  'Schedule Date',
                  style: TextStyle(
                    fontSize: 16,
                    fontWeight: FontWeight.bold,
-                   color: textColor,
+                   color: themeProvider.isDarkTheme ? textPrimaryDark : textColor
                  ),
                ),
                GestureDetector(
@@ -115,7 +137,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                    'Edit',
                    style: TextStyle(
                      color: primaryColor,
-                     fontSize: 14,
+                     fontSize: 15,
                      fontWeight: FontWeight.bold,
                    ),
                  ),
@@ -125,24 +147,26 @@ class _PaymentScreenState extends State<PaymentScreen> {
            const SizedBox(height: 20),
            Row(
              children: [
-               SvgPicture.asset('assets/icons/menu-board.svg'),
+               SvgPicture.asset(themeProvider.isDarkTheme
+                ? 'assets/icons/menu-board-dark.svg'
+                : 'assets/icons/menu-board.svg',),
                const SizedBox(width: 12),
                 Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
-                   const Text(
+                  Text(
                      'Appointment',
                      style: TextStyle(
                        fontSize: 14,
-                       color: Colors.grey,
+                       color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
                      ),
                    ),
                    Text(
-                     'Wednesday, 10 Jan 2024, 11:00',
+                     'Wednesday, 10 Dec 2024, 12:00',
                      style: TextStyle(
-                       fontSize: 16,
+                       fontSize: 15,
                        fontWeight: FontWeight.bold,
-                       color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
+                       color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                      ),
                    ),
                  ],
@@ -159,7 +183,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                  style: TextStyle(
                    fontSize: 16,
                    fontWeight: FontWeight.bold,
-                   color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
+                   color: themeProvider.isDarkTheme ? textPrimaryDark : textColor
                  ),
                ),
                GestureDetector(
@@ -168,7 +192,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                    'See All',
                    style: TextStyle(
                      color: primaryColor,
-                     fontSize: 14,
+                     fontSize: 15,
                      fontWeight: FontWeight.bold,
                    ),
                  ),
@@ -208,12 +232,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
            ),
            const SizedBox(height: 40),
            // Total Payment
-           const Text(
+          Text(
              'Total payment',
              style: TextStyle(
                fontSize: 16,
                fontWeight: FontWeight.bold,
-               color: textColor,
+               color: themeProvider.isDarkTheme ? textPrimaryDark : textColor
              ),
            ),
            const SizedBox(height: 15),
@@ -221,16 +245,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
           Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               const Text(
+              Text(
                  'Consultation Fee',
-                 style: TextStyle(fontSize: 14),
+                 style: TextStyle(
+                  fontSize: 14,
+                  color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                ),
                ),
                Text(
                  'IDR 200.000',
                  style: TextStyle(
                    fontSize: 16,
                    fontWeight: FontWeight.bold,
-                   color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
+                   color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                  ),
                ),
              ],
@@ -239,16 +266,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
           Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-               const Text(
+              Text(
                  'Admin',
-                 style: TextStyle(fontSize: 14),
+                 style: TextStyle(
+                  fontSize: 14,
+                  color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                ),
                ),
                Text(
                  'Free',
                  style: TextStyle(
                    fontSize: 14,
                    fontWeight: FontWeight.bold,
-                   color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
+                   color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                  ),
                ),
              ],
@@ -263,10 +293,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
               Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
-                   const Text(
+                   Text(
                      'Total',
                      style: TextStyle(
                        fontSize: 16,
+                       color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
                      ),
                    ),
                    Text(
@@ -274,7 +305,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                      style: TextStyle(
                        fontSize: 17,
                        fontWeight: FontWeight.bold,
-                       color: themeProvider.isDarkTheme ? Colors.white : Colors.black,
+                       color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                      ),
                    ),
                  ],

@@ -61,7 +61,7 @@ class DoctorBooked extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: SvgPicture.asset(
-                  'assets/icons/chat.svg',
+                  themeProvider.isDarkTheme ? 'assets/icons/chat-dark.svg' : 'assets/icons/chat.svg',
                   width: 40,
                   height: 40,
                 ),

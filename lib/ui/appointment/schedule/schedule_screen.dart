@@ -43,13 +43,23 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
    return Scaffold(
      appBar: AppBar(
-       backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
-       title: Text('Make Appointment', style: TextStyle(fontWeight: FontWeight.bold, color: themeProvider.isDarkTheme ? Colors.white : textColor)),
-       leading: IconButton(
-         icon: const Icon(Icons.arrow_back_ios),
-         onPressed: () => Navigator.pop(context),
-       ),
-     ),
+        backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
+        elevation: 1,
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: themeProvider.isDarkTheme ? Colors.white : Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          "Make Appointment",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+      ),
      body: Padding(
        padding: const EdgeInsets.all(16.0),
        child: Column(
@@ -58,26 +68,26 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           Text(
              'Select your visit date & Time',
              style: TextStyle(
-               color: themeProvider.isDarkTheme ? Colors.white : textColor,
-               fontSize: 20,
+               color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
+               fontSize: 18,
                fontWeight: FontWeight.bold,
              ),
            ),
            const SizedBox(height: 10),
-           const Text(
+           Text(
              'You can choose the date and time from the available doctor\'s schedule',
              style: TextStyle(
-               fontSize: 14,
-               color: Colors.grey,
+               fontSize: 15,
+               color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
              ),
            ),
            const SizedBox(height: 30),
           Text(
-             'Choose Day, Jan 2024',
+             'Choose Day, December 2024',
              style: TextStyle(
-               fontSize: 17,
+               fontSize: 16,
                fontWeight: FontWeight.bold,
-               color: themeProvider.isDarkTheme ? Colors.white : textColor,
+               color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
              ),
            ),
            const SizedBox(height: 16),
@@ -101,9 +111,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           Text(
              'Morning Set',
              style: TextStyle(
-               fontSize: 17,
+               fontSize: 16,
                fontWeight: FontWeight.bold,
-               color: themeProvider.isDarkTheme ? Colors.white : textColor,
+               color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
              ),
            ),
            const SizedBox(height: 10),
@@ -167,7 +177,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
        decoration: BoxDecoration(
          color: isSelected
              ? (themeProvider.isDarkTheme ? primaryDarkColor : primaryColor)
-             : (themeProvider.isDarkTheme ? Colors.grey[800] : Colors.white),
+             : (themeProvider.isDarkTheme ? const Color(0xFF020E22) : Colors.white),
          borderRadius: BorderRadius.circular(15),
          border: Border.all(
            color: isSelected
@@ -182,8 +192,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
            Text(
              topText,
              style: TextStyle(
+              fontWeight: FontWeight.bold,
                color: isSelected
-                   ? Colors.white
+                   ? (themeProvider.isDarkTheme ? Colors.black : Colors.white)
                    : (themeProvider.isDarkTheme ? Colors.white : Colors.black),
              ),
            ),
@@ -192,10 +203,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
              bottomText,
              style: TextStyle(
                color: isSelected
-                   ? Colors.white
+                   ? (themeProvider.isDarkTheme ? Colors.black : Colors.white)
                    : (themeProvider.isDarkTheme ? Colors.white : Colors.black),
                fontWeight: FontWeight.bold,
-               fontSize: 20,
+               fontSize: 23,
              ),
            ),
          ],
@@ -207,6 +218,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
  // bikin deretan waktu berdasarkan list yang diatas banget itu
  Widget _buildTimeRow(List<String> times, int startIndex) {
+  final themeProvider = Provider.of<ThemeProvider>(context);
+
    return Row(
      children: times.asMap().entries.map((entry) {
        /*
@@ -226,10 +239,18 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
            height: 40,
            margin: const EdgeInsets.only(right: 12),
            decoration: BoxDecoration(
-             color: isDisabled ? Colors.grey[300] : (isSelected ? primaryColor : Colors.white),
+             color: isDisabled
+                ? (themeProvider.isDarkTheme ? Colors.grey[800] : Colors.grey[300])
+                : (isSelected
+                    ? (themeProvider.isDarkTheme ? primaryDarkColor : primaryColor)
+                    : (themeProvider.isDarkTheme ? const Color(0xFF020E22) : Colors.white)),
              borderRadius: BorderRadius.circular(8),
              border: Border.all(
-               color: isDisabled ? Colors.grey : (isSelected ? primaryColor : Colors.grey),
+               color: isDisabled
+                  ? (themeProvider.isDarkTheme ? Colors.grey[700]! : Colors.grey)
+                  : (isSelected
+                      ? (themeProvider.isDarkTheme ? primaryDarkColor : primaryColor)
+                      : (themeProvider.isDarkTheme ? Colors.grey[600]! : Colors.grey)),
              ),
            ),
            padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -237,7 +258,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
              child: Text(
                time,
                style: TextStyle(
-                 color: isDisabled ? Colors.grey : (isSelected ? Colors.white : Colors.black),
+                 color: isDisabled
+                    ? (themeProvider.isDarkTheme ? Colors.grey[600] : Colors.grey)
+                    : (isSelected
+                        ? (themeProvider.isDarkTheme ? Colors.black : Colors.white)
+                        : (themeProvider.isDarkTheme ? Colors.white : Colors.black)),
                  fontWeight: FontWeight.w500,
                  fontSize: 13,
                ),

@@ -7,3 +7,4 @@ const textPrimaryDark = Color(0xFFFDFDFD);
 const textSecondaryDark = Color(0xFFA1A1AA); 
 
 const textColor = Color(0xFF18181B);
+const textSecondary = Color(0xFF71717A);

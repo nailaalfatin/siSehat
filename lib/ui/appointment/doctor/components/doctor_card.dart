@@ -53,7 +53,9 @@ class DoctorCard extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       doctor.specialist,
-                      style: TextStyle(color: themeProvider.isDarkTheme ? Colors.white : textColor),
+                      style: TextStyle(
+                        color: themeProvider.isDarkTheme ? Colors.white : textSecondaryDark
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -73,8 +75,9 @@ class DoctorCard extends StatelessWidget {
                   const SizedBox(width: 4),
                   Text(
                     doctor.rating.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: themeProvider.isDarkTheme ? textSecondaryDark : textColor,
                     ),
                   ),
                 ],

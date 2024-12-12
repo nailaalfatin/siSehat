@@ -9,6 +9,7 @@ class DoctorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -33,17 +34,22 @@ class DoctorInfo extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: themeProvider.isDarkTheme ? Colors.white : textColor,
+                  color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                 ),
               ),
-              const Text('Ear, Nose & Throat specialist'),
+              Text(
+                'Ear, Nose & Throat specialist',
+                style: TextStyle(
+                  color: themeProvider.isDarkTheme ? textSecondaryDark : textSecondary
+                ),
+              ),
               const SizedBox(height: 8),
               Text(
                 'IDR 120.000',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: themeProvider.isDarkTheme ? Colors.white : textColor,
+                  color: themeProvider.isDarkTheme ? textPrimaryDark : textColor,
                 ),
               ),
             ],

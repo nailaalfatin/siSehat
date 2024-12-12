@@ -68,45 +68,54 @@ class ActionCard extends StatelessWidget {
   }
 
   static List<Widget> actionCardList(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+  final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
 
-    return [
-      ActionCard(
-        title: 'Book an Appointment',
-        subtitle: 'Find a Doctor',
-        getColor: (ctx) =>
-            themeProvider.isDarkTheme ? const Color(0xFF13286D) : const Color(0xFFF9F5FF),
-        iconPath: 'assets/icons/menu-board.svg',
-        onTap: () {
-          Navigator.pushNamed(context, '/choose-appointment');
-        },
-      ),
-      ActionCard(
-        title: 'Appointment with QR',
-        subtitle: 'Hassle-free queuing',
-        getColor: (ctx) =>
-            themeProvider.isDarkTheme ? const Color(0xFF084C2E) : const Color(0xFFEDFCF2),
-        iconPath: 'assets/icons/scan.svg',
-        onTap: () {
-          Navigator.pushNamed(context, '/appointment-with-qr');
-        },
-      ),
-      ActionCard(
-        title: 'Request Consultation',
-        subtitle: 'Talk to specialist',
-        getColor: (ctx) =>
-            themeProvider.isDarkTheme ? const Color.fromARGB(255, 148, 77, 61) : const Color(0xFFFEF6EE),
-        iconPath: 'assets/icons/message-favorite.svg',
-        onTap: () {},
-      ),
-      ActionCard(
-        title: 'Locate a Pharmacy',
-        subtitle: 'Purchase Medicines',
-        getColor: (ctx) =>
-            themeProvider.isDarkTheme ? const Color(0xFF7A271A) : const Color(0xFFFEF3F2),
-        iconPath: 'assets/icons/building.svg',
-        onTap: () {},
-      ),
-    ];
-  }
+  return [
+    ActionCard(
+      title: 'Book an Appointment',
+      subtitle: 'Find a Doctor',
+      getColor: (ctx) =>
+          themeProvider.isDarkTheme ? const Color(0xFF13286D) : const Color(0xFFF9F5FF),
+      iconPath: themeProvider.isDarkTheme
+          ? 'assets/icons/menu-board-dark.svg'
+          : 'assets/icons/menu-board.svg',
+      onTap: () {
+        Navigator.pushNamed(context, '/choose-appointment');
+      },
+    ),
+    ActionCard(
+      title: 'Appointment with QR',
+      subtitle: 'Hassle-free queuing',
+      getColor: (ctx) =>
+          themeProvider.isDarkTheme ? const Color(0xFF084C2E) : const Color(0xFFEDFCF2),
+      iconPath: themeProvider.isDarkTheme
+          ? 'assets/icons/scan-dark.svg'
+          : 'assets/icons/scan.svg',
+      onTap: () {
+        Navigator.pushNamed(context, '/appointment-with-qr');
+      },
+    ),
+    ActionCard(
+      title: 'Request Consultation',
+      subtitle: 'Talk to specialist',
+      getColor: (ctx) =>
+          themeProvider.isDarkTheme ? const Color.fromARGB(255, 148, 77, 61) : const Color(0xFFFEF6EE),
+      iconPath: themeProvider.isDarkTheme
+          ? 'assets/icons/message-favorite-dark.svg'
+          : 'assets/icons/message-favorite.svg',
+      onTap: () {},
+    ),
+    ActionCard(
+      title: 'Locate a Pharmacy',
+      subtitle: 'Purchase Medicines',
+      getColor: (ctx) =>
+          themeProvider.isDarkTheme ? const Color(0xFF7A271A) : const Color(0xFFFEF3F2),
+      iconPath: themeProvider.isDarkTheme
+          ? 'assets/icons/building-dark.svg'
+          : 'assets/icons/building.svg',
+      onTap: () {},
+    ),
+  ];
+}
+
 }

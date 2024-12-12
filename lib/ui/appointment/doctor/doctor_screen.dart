@@ -3,6 +3,7 @@ import 'package:finpro_app/models/doctors.dart';
 import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:finpro_app/ui/appointment/doctor/components/doctor_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 class Doctorscreen extends StatelessWidget {
@@ -23,9 +24,12 @@ class Doctorscreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           "Ear, Nose & Throat",
-          style: TextStyle(color:themeProvider.isDarkTheme ? Colors.white : textColor),
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
         ),
       ),
       body: Padding(
@@ -35,31 +39,24 @@ class Doctorscreen extends StatelessWidget {
           children: [
             // Search and Filter Row
             Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Search Doctor',
-                      prefixIcon: const Icon(Icons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFFF9F5FF),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.filter_list, color: Colors.black),
-                  ),
-                ),
-              ],
-            ),
+               children: [
+                 Expanded(
+                   child: TextField(
+                     decoration: InputDecoration(
+                       hintText: 'symptoms, diseases...',
+                       prefixIcon: const Icon(Icons.search),
+                       border: OutlineInputBorder(
+                         borderRadius: BorderRadius.circular(10),
+                       ),
+                     ),
+                   ),
+                 ),
+                 const SizedBox(width: 12),
+                 SvgPicture.asset(
+                  themeProvider.isDarkTheme ? 'assets/icons/filter-button-dark.svg' : 'assets/icons/filter-button.svg'
+                 ),
+               ],
+             ),
             const SizedBox(height: 20),
             // Filter Buttons
             const Row(
@@ -98,18 +95,21 @@ class FilterButton extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: themeProvider.isDarkTheme ? Colors.black : Colors.white,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: themeProvider.isDarkTheme ? Colors.grey.shade300 : textColor),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             label,
-            style: TextStyle(color: themeProvider.isDarkTheme ? Colors.white : textSecondaryDark),
+            style: TextStyle(
+              color: themeProvider.isDarkTheme ? textSecondaryDark : textColor,
+              fontWeight: FontWeight.bold
+            ),
           ),
           const SizedBox(width: 3),
           const Icon(Icons.arrow_drop_down)

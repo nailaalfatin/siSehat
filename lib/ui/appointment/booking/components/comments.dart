@@ -1,40 +1,59 @@
+import 'package:finpro_app/consts.dart';
+import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart'; // make sure to use Provider for ThemeProvider
 
 class Comments extends StatelessWidget {
   const Comments({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDarkTheme = themeProvider.isDarkTheme;
+
     return Column(
       children: [
         _buildComment(
+          context,
           'assets/images/rating-1.png',
           'Ariana Grande',
           'Dr. Patricia is so kind and understanding! Highly recommend.',
           'Today',
           4.5,
+          isDarkTheme,
         ),
         _buildComment(
+          context,
           'assets/images/rating-2.png',
           'Louis Partridge',
           'Great experience overall! The details were very well explained.',
           'Yesterday',
           4.2,
+          isDarkTheme,
         ),
         _buildComment(
+          context,
           'assets/images/rating-3.png',
           'Niki Zefanya',
           'The service was excellent and exceeded my expectations.',
           '1 Week ago',
           4.8,
+          isDarkTheme,
         ),
       ],
     );
   }
 
   Widget _buildComment(
-      String imagePath, String name, String comment, String time, double rating) {
+    BuildContext context,
+    String imagePath,
+    String name,
+    String comment,
+    String time,
+    double rating,
+    bool isDarkTheme,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -55,14 +74,18 @@ class Comments extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 15,
+                          color: isDarkTheme ? textPrimaryDark : textColor,
                         ),
                       ),
                       Text(
                         time,
-                        style: const TextStyle(color: Colors.grey, fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: isDarkTheme ? textSecondaryDark : textSecondary,
+                        ),
                       ),
                     ],
                   ),
@@ -71,20 +94,26 @@ class Comments extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         'assets/icons/rating-star.svg',
-                        width: 16,
-                        height: 16,
+                        width: 17,
+                        height: 17,
                       ),
                       const SizedBox(width: 4),
                       Text(
                         '$rating',
-                        style: const TextStyle(fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: isDarkTheme ? textSecondaryDark : textSecondary,
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text(
                     comment,
-                    style: const TextStyle(fontSize: 13),
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: isDarkTheme ? textSecondaryDark : textSecondary
+                    ),
                   ),
                 ],
               ),

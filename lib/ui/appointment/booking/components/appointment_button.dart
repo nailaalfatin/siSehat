@@ -31,13 +31,17 @@ class AppointmentButton extends StatelessWidget {
                 ),
                 child: const Text(
                   "Make Appointment",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 16, 
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
             ),
             const SizedBox(width: 8),
             SvgPicture.asset(
-              'assets/icons/chat-rectangle.svg',
+              themeProvider.isDarkTheme ? 'assets/icons/chat-rectangle-dark.svg' : 'assets/icons/chat-rectangle.svg',
               width: 50,
               height: 50,
             ),

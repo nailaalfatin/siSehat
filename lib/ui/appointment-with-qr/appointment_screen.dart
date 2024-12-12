@@ -1,5 +1,7 @@
 import 'package:finpro_app/consts.dart';
+import 'package:finpro_app/state-management/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppointmentScreen extends StatefulWidget {
   const AppointmentScreen({super.key});
@@ -14,16 +16,25 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Appointment With QR'),
-        backgroundColor: Colors.white,
+        backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context); // Navigasi kembali ke halaman sebelumnya
           },
+          icon: const Icon(Icons.arrow_back_ios), // Ikon panah untuk kembali
         ),
+        title: const Text(
+          'Book an Appointment',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ), // Judul halaman dengan teks tebal
+        ),
+        centerTitle: true, // Membuat judul di tengah
       ),
       body: SingleChildScrollView(
         child: Padding(
